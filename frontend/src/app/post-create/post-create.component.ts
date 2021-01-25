@@ -17,9 +17,16 @@ export class PostCreateComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
+
+  }
+
+  public mockUser(){
+    this.currentUser = new User();
+    this.currentUser.id = 1;
   }
 
   public createPost() :boolean{
+    this.mockUser();
     let post:Post = new Post(0,this.currentUser,this.title,this.content);
 
     this.postService.createPost(post).toPromise().then(post => {
