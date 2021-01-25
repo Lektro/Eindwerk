@@ -8,8 +8,9 @@ import {PostService} from "../services/post.service";
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.css']
 })
-export class CreatePostComponent implements OnInit {
+export class CreatePostComponent {
   post: Post
+
 
   constructor(private postService: PostService,
               private router: Router,
@@ -17,13 +18,11 @@ export class CreatePostComponent implements OnInit {
     this.post = new Post();
   }
 
-  ngOnInit(): void {
+  onSubmit() {
+    this.postService.save(this.post).subscribe(() => this.gotoPostList());
   }
 
-  onSubmit() {
-    this.postService.save(this.post).subscribe(result => this.gotoPostList());
-  }
   gotoPostList() {
-    this.router.navigate(['/posts']);
+    this.router.navigate(['/listPosts']);
   }
 }

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import {FormsModule} from "@angular/forms";
+import {PostService} from "./services/post.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
