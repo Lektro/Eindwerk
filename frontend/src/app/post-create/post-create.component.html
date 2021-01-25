@@ -1,0 +1,12 @@
+<p>post-create works!</p>
+
+<p>Current user: {{this.currentUser.id}}</p>
+
+Title:
+<input type="text" (change)="this.title = inputTitle.value " #inputTitle>
+
+Content
+<textarea rows="10" cols = "50" (change)="this.content = inputContent.value" #inputContent></textarea>
+
+<button (click)="this.createPost()"> Create Post</button>
+

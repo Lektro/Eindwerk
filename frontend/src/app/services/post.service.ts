@@ -19,4 +19,8 @@ export class PostService {
   public getAllPosts():Observable<Post[]>{
     return this.http.get<Post[]>(this.articlesUrl);
   }
+
+  public createPost(user_id: number, postTitle: string, postContent: string): Observable<boolean>{
+    return this.http.post<boolean>(this.articlesUrl + 'createPost', {user_id,postTitle,postContent});
+  }
 }

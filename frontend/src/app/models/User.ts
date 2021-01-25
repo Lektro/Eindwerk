@@ -1,3 +1,5 @@
-export interface User{
-  id: number;
+export class User{
+  public id: number = 0;
+
+
 }
