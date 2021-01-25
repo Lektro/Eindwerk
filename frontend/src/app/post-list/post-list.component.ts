@@ -16,10 +16,6 @@ export class PostListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.updatePosts();
-  }
-
-  public updatePosts(){
     this.postService.getAllPosts().toPromise().then(posts =>{
       this.posts = posts;
     })

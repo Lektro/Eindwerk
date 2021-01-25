@@ -55,4 +55,14 @@ public class Post {
         this.postContent = postContent;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", user=" + user +
+                ", postTitle='" + postTitle + '\'' +
+                ", postContent='" + postContent + '\'' +
+                '}';
+    }
 }
