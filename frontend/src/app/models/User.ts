@@ -1,3 +1,3 @@
-export interface User{
-  id: number;
+export class User{
+  id: number | undefined;
 }

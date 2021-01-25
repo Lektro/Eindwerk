@@ -55,4 +55,8 @@ public class Post {
         this.postContent = postContent;
         return this;
     }
+
+    public Post() {
+    }
+
 }

@@ -8,15 +8,17 @@ import {Post} from "../models/Post";
 })
 export class PostService {
 
-  private readonly articlesUrl: string;
-
-
+  private readonly postUrl: string;
 
   constructor(private http: HttpClient) {
-    this.articlesUrl = 'http://localhost:8080/api/posts';
+    this.postUrl = 'http://localhost:8080/api/posts';
   }
 
   public getAllPosts():Observable<Post[]>{
-    return this.http.get<Post[]>(this.articlesUrl);
+    return this.http.get<Post[]>(this.postUrl);
+  }
+
+  delete(id: number): Observable<Post> {
+    return this.http.delete<Post>(`${this.postUrl}/${id}`);
   }
 }

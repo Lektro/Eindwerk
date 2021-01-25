@@ -7,4 +7,5 @@ import org.springframework.stereotype.Service;
 public interface PostService {
     Post save(Post post);
     Iterable<Post> getAllPosts();
+    void deleteById(Long id);
 }

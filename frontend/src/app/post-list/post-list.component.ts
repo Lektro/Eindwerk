@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Post} from "../models/Post";
 import {PostService} from "../services/post.service";
 
@@ -9,20 +9,22 @@ import {PostService} from "../services/post.service";
 })
 export class PostListComponent implements OnInit {
 
-  posts:Post[] = [];
+  public id!: number;
+  posts: Post[] = [];
 
-  constructor(
-    private postService: PostService
-  ) { }
-
-  ngOnInit(): void {
-    this.updatePosts();
+  constructor(private postService: PostService) {
   }
 
-  public updatePosts(){
-    this.postService.getAllPosts().toPromise().then(posts =>{
-      this.posts = posts;
-    })
+  ngOnInit() {
+    this.postService.getAllPosts().toPromise().then((postData) => {
+      this.posts = postData
+    });
   }
 
+
+  delete(id: number) {
+    this.postService.delete(id).toPromise().then(() => {
+      return this.ngOnInit();
+    });
+  }
 }
