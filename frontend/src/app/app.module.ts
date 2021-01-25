@@ -4,17 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostListComponent } from './post-list/post-list.component';
+import {PostService} from "./service/post.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostListComponent
+    PostListComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
