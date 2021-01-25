@@ -1,1 +1,36 @@
-<p>post-list works!</p>
+<p>Availble Posts in DataBase</p>
+
+<div class="text-center">
+  <h3>Search Available Post</h3>
+</div>
+<div class="card my-5">
+  <div class="card-body">
+    <div class="table-responsive-sm">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Post ID</th>
+          <th scope="col">Post Title</th>
+          <th scope="col">Post Content</th>
+          <th scope="col">Total Available Seats</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let post of posts" >
+          <td>{{ post.id }}</td>
+          <td>{{ flight.advertisedPrice }} EURO</td>
+          <td>{{ flight.flightNumber }}</td>
+          <td>{{ flight.totalAvailableSeats }}</td>
+          <!--        *ngIf only displays on actual value's and otherwise skips check happens on front end part -->
+          <!--        ternary if statement to display a default value if departureAirport equals undefined-->
+          <!--        condition ? exprIfTrue : exprIfFalse-->
+          <td >{{ flight.departureAirport != undefined ? flight.departureAirport.name : "Departure N/A" }}</td>
+          <td >{{ flight.arrivalAirport != undefined ? flight.arrivalAirport.name : "Arrival N/A" }}</td>
+          <td>{{ flight.airline!= undefined ? flight.airline.name :"Airline N/A" }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
