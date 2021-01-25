@@ -11,14 +11,14 @@ public class PostServiceImpl implements PostService{
     private final PostRepository postRepository;
 
     public PostServiceImpl(PostRepository postRepository) {this.postRepository = postRepository; }
-    @Override
-    public Post save(Post post) {
-        return postRepository.save(post);
-    }
 
     @Override
     public Iterable<Post> getAllPosts() {
         return postRepository.findAll();
     }
 
+    @Override
+    public void createPost(Post post) {
+        postRepository.save(post);
+    }
 }

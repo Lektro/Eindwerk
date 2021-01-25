@@ -12,13 +12,24 @@ public class Post {
     private Long id;
 
     /// own homemade class not java class pretty please
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "post_title")
     private String postTitle;
 
+    @Column(name = "post_content")
     private String postContent;
+
+
+    public Post() { }
+
+    public Post(User user, String postTitle, String postContent) {
+        this.user = user;
+        this.postTitle = postTitle;
+        this.postContent = postContent;
+    }
 
     public Long getId() {
         return id;
@@ -33,9 +44,8 @@ public class Post {
         return user;
     }
 
-    public Post setUser(User user) {
+    public void setUser(User user) {
         this.user = user;
-        return this;
     }
 
     public String getPostTitle() {

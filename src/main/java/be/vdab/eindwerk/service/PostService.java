@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface PostService {
-    Post save(Post post);
     Iterable<Post> getAllPosts();
+    void createPost(Post post);
 }
