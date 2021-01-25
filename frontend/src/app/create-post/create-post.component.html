@@ -1,0 +1,20 @@
+<p>create-post form here!</p>
+
+<div class="card ">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #postForm="ngForm">
+
+      <div class="form-group">
+        <label for="postTitle">Enter Post Title</label>
+        <input id="postTitle"
+               name="postTitle"
+               type="text"
+               class="form-control"
+               [(ngModel)]="post.postTitle"
+               placeholder="Enter the Post Title"
+               required #postTitle="ngModel">
+      </div>
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

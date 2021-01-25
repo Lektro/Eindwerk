@@ -21,7 +21,6 @@ export class PostListComponent implements OnInit {
     });
   }
 
-
   delete(id: number) {
     this.postService.delete(id).toPromise().then(() => {
       return this.ngOnInit();

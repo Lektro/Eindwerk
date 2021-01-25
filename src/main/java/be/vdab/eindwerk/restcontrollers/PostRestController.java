@@ -26,4 +26,9 @@ public class PostRestController {
     public void deletePost(@PathVariable Long id) {
         postService.deleteById(id);
     }
+
+    @PostMapping(value = {"/posts"})
+    public Post createPost(@RequestBody Post post) { return postService.save(post);
+    }
+
 }
