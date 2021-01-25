@@ -28,13 +28,9 @@ export class PostService {
 
 
   public createPost(post:Post): Observable<Post>{
-    console.log(post);
+    //console.log(post);
     return this.http.post<Post>(this.articlesUrl + 'addPost', post);
 
-    // let params = new HttpParams()
-    //   .set("post",String(post));
-    //
-    // return this.http.get<Post>(this.articlesUrl + 'addPost',{params:params})
 
   }
 
