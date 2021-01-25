@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../models/User";
 import {PostService} from "../services/post.service";
 import {Post} from "../models/Post";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-post-create',
@@ -10,27 +11,28 @@ import {Post} from "../models/Post";
 })
 export class PostCreateComponent implements OnInit {
 
-  @Input() currentUser: User = new User();
+  @Input() id: number = 1; //user id
+  currentUser: User = new User();
   content: string = "";
   title: string = "";
 
-  constructor(private postService: PostService) { }
+  constructor(
+    private postService: PostService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
-
+    this.userService.findUserByID(this.id).toPromise().then(user =>{
+      this.currentUser = user;
+    });
   }
 
-
   public createPost() :boolean{
-    let post:Post = new Post(null,null,this.title,this.content);
+    let post:Post = new Post(null,this.currentUser,this.title,this.content);
 
     this.postService.createPost(post).toPromise().then(post => {
       console.log(post);
     });
-
-    // this.postService.createPost(this.currentUser.id,this.title,this.content).toPromise().then(successBool =>{
-    //   return successBool;
-    // });
 
     return true;
   }

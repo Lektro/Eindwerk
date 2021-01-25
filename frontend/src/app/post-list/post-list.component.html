@@ -13,6 +13,7 @@
           <th scope="col">User ID</th>
           <th scope="col">Post Title</th>
           <th scope="col">Post Content</th>
+          <th scope="col">Delete post?</th>
 
         </tr>
         </thead>
@@ -22,6 +23,7 @@
           <td>{{ post.user.id}}</td>
           <td>{{ post.postTitle}}</td>
           <td>{{ post.postContent }}</td>
+          <td><button (click)="deletePost(post)">Delete Post</button></td>
 <!--          &lt;!&ndash;        *ngIf only displays on actual value's and otherwise skips check happens on front end part &ndash;&gt;-->
 <!--          &lt;!&ndash;        ternary if statement to display a default value if departureAirport equals undefined&ndash;&gt;-->
 <!--          &lt;!&ndash;        condition ? exprIfTrue : exprIfFalse&ndash;&gt;-->

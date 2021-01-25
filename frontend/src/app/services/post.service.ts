@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Post} from "../models/Post";
-import {applySourceSpanToExpressionIfNeeded} from "@angular/compiler/src/output/output_ast";
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +24,11 @@ export class PostService {
     return this.http.get<Post[]>(this.articlesUrl + 'getAllPosts');
   }
 
-
-
   public createPost(post:Post): Observable<Post>{
-    //console.log(post);
     return this.http.post<Post>(this.articlesUrl + 'addPost', post);
-
-
   }
 
+  public deletePost(post:Post): Observable<boolean>{
+    return this.http.post<boolean>(this.articlesUrl + 'deletePost', post);
+  }
 }

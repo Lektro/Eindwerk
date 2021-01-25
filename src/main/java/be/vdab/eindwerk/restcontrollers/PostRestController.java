@@ -7,7 +7,7 @@ import com.sun.istack.NotNull;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/posts/")
 @CrossOrigin(origins = "http://localhost:4200")
 public class PostRestController {
 
@@ -15,18 +15,21 @@ public class PostRestController {
 
     public PostRestController (PostServiceImpl postService) { this.postService = postService; }
 
-    @GetMapping(value = {"/posts/getAllPosts"})
+    @GetMapping(value = {"getAllPosts"})
     public @NotNull
     Iterable<Post> getPosts() {
-
-        Iterable<Post> allPosts = postService.getAllPosts();
-        System.out.println(allPosts);
-        return allPosts;
+        return postService.getAllPosts();
     }
 
-    @PostMapping(value = {"/posts/addPost"})
+    @PostMapping(value = {"deletePost"})
+    public boolean deletePost(@RequestBody Post post){
+        postService.deletePost(post);
+        return true;
+    }
+
+
+    @PostMapping(value = {"addPost"})
     public boolean createPost(@RequestBody Post post){
-        System.out.println(post);
         postService.save(post);
         return true;
     }
