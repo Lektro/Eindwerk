@@ -3,7 +3,7 @@ package be.vdab.eindwerk.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "post", schema = "eindewerk")
+@Table(name = "post", schema = "eindwerk")
 public class Post {
 
     @Id
