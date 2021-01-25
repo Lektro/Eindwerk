@@ -1,6 +1,7 @@
 package be.vdab.eindwerk.restcontrollers;
 
 import be.vdab.eindwerk.model.Post;
+import be.vdab.eindwerk.service.PostService;
 import be.vdab.eindwerk.service.PostServiceImpl;
 import com.sun.istack.NotNull;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class PostRestController {
 
-    private PostServiceImpl postService;
+    private PostService postService;
 
-    public PostRestController (PostServiceImpl postService) { this.postService = postService; }
+    public PostRestController (PostService postService) { this.postService = postService; }
 
     @GetMapping(value = {"/posts"})
     public @NotNull
