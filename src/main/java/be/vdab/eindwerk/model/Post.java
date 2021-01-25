@@ -20,6 +20,39 @@ public class Post {
 
     private String postContent;
 
+    public Long getId() {
+        return id;
+    }
 
+    public Post setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
+    public User getUser() {
+        return user;
+    }
+
+    public Post setUser(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public String getPostTitle() {
+        return postTitle;
+    }
+
+    public Post setPostTitle(String postTitle) {
+        this.postTitle = postTitle;
+        return this;
+    }
+
+    public String getPostContent() {
+        return postContent;
+    }
+
+    public Post setPostContent(String postContent) {
+        this.postContent = postContent;
+        return this;
+    }
 }

@@ -10,27 +10,28 @@
         <thead class="thead-dark">
         <tr>
           <th scope="col">Post ID</th>
+          <th scope="col">User ID</th>
           <th scope="col">Post Title</th>
           <th scope="col">Post Content</th>
-          <th scope="col">Total Available Seats</th>
 
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let post of posts" >
           <td>{{ post.id }}</td>
-          <td>{{ flight.advertisedPrice }} EURO</td>
-          <td>{{ flight.flightNumber }}</td>
-          <td>{{ flight.totalAvailableSeats }}</td>
-          <!--        *ngIf only displays on actual value's and otherwise skips check happens on front end part -->
-          <!--        ternary if statement to display a default value if departureAirport equals undefined-->
-          <!--        condition ? exprIfTrue : exprIfFalse-->
-          <td >{{ flight.departureAirport != undefined ? flight.departureAirport.name : "Departure N/A" }}</td>
-          <td >{{ flight.arrivalAirport != undefined ? flight.arrivalAirport.name : "Arrival N/A" }}</td>
-          <td>{{ flight.airline!= undefined ? flight.airline.name :"Airline N/A" }}</td>
+          <td>{{ post.user.id}}</td>
+          <td>{{ post.postTitle}}</td>
+          <td>{{ post.postContent }}</td>
+<!--          &lt;!&ndash;        *ngIf only displays on actual value's and otherwise skips check happens on front end part &ndash;&gt;-->
+<!--          &lt;!&ndash;        ternary if statement to display a default value if departureAirport equals undefined&ndash;&gt;-->
+<!--          &lt;!&ndash;        condition ? exprIfTrue : exprIfFalse&ndash;&gt;-->
+<!--          <td >{{ flight.departureAirport != undefined ? flight.departureAirport.name : "Departure N/A" }}</td>-->
+<!--          <td >{{ flight.arrivalAirport != undefined ? flight.arrivalAirport.name : "Arrival N/A" }}</td>-->
+<!--          <td>{{ flight.airline!= undefined ? flight.airline.name :"Airline N/A" }}</td>-->
         </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+

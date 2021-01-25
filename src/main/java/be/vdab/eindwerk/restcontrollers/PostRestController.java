@@ -20,8 +20,10 @@ public class PostRestController {
     @GetMapping(value = {"/posts"})
     public @NotNull
     Iterable<Post> getPosts() {
-        return postService.getAllPosts();
-    }
+
+        Iterable<Post> allPosts = postService.getAllPosts();
+        System.out.println(allPosts);
+        return allPosts; }
 
 
 }

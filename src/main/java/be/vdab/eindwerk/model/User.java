@@ -9,4 +9,12 @@ public class User {
     @Column(updatable = false, nullable = false)
     private Long id;
 
+    public Long getId() {
+        return id;
+    }
+
+    public User setId(Long id) {
+        this.id = id;
+        return this;
+    }
 }
