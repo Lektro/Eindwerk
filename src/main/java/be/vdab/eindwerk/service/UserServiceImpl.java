@@ -49,6 +49,7 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(user);
     }
 
+    @Override
     public boolean validateUser(User user){
         // TODO: use criteria builder to find user with username
         User dbUser = new User();
@@ -58,5 +59,7 @@ public class UserServiceImpl implements UserService {
         // compare passwords
         return user.getPassword().equals(dbUser.getPassword());
     }
+
+
 
 }

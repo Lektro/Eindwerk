@@ -28,7 +28,7 @@ export class PostCreateComponent implements OnInit {
   }
 
   public createPost() :boolean{
-    let post:Post = new Post(null,this.currentUser,this.title,this.content);
+    let post:Post = new Post(-1,this.currentUser,this.title,this.content);
 
     this.postService.createPost(post).toPromise().then(post => {
       console.log(post);

@@ -38,4 +38,11 @@ export class UserService {
     return this.http.post<boolean>(this.articlesUrl + 'deleteUser',user);
   }
 
+  public validateUser(user:User): Observable<boolean>{
+    let params = new HttpParams()
+      .set("user",String(user));
+
+    return this.http.get<boolean>(this.articlesUrl + 'validateUser',{params:params});
+  }
+
 }

@@ -34,4 +34,10 @@ public class PostRestController {
         return true;
     }
 
+    @GetMapping(value = {"findPostsFromCategory"})
+    public @NotNull Iterable<Post> findPostsFromCategory(@RequestParam String category){
+        return postService.findPostsFromCategory(category);
+    }
+
+
 }

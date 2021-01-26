@@ -5,6 +5,8 @@ import be.vdab.eindwerk.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+
 @Service
 @Transactional
 public class PostServiceImpl implements PostService{
@@ -23,4 +25,10 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public void deletePost(Post post){ postRepository.delete(post);}
+
+    @Override
+    public Iterable<Post> findPostsFromCategory(String category) {
+        // TODO: use criteria builder to get posts from a certain category
+        return new ArrayList<Post>();
+    }
 }

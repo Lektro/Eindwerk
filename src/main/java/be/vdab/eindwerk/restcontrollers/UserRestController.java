@@ -36,5 +36,10 @@ public class UserRestController {
         return true;
     }
 
+    @GetMapping(value = {"validateUser"})
+    public boolean validateUser(@RequestParam User user){
+        return userService.validateUser(user);
+    }
+
 
 }

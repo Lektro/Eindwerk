@@ -10,4 +10,5 @@ public interface UserService {
     User findUserByID(long id);
     void saveUser(User user);
     void deleteUser(User user);
+    boolean validateUser(User user);
 }

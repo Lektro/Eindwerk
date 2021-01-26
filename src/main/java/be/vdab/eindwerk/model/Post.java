@@ -15,9 +15,9 @@ public class Post {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-
+    @Column()
     private String postTitle;
-
+    @Column()
     private String postContent;
 
     public Long getId() {
