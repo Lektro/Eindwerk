@@ -11,7 +11,6 @@ import {PostService} from "../services/post.service";
 export class CreatePostComponent {
   post: Post
 
-
   constructor(private postService: PostService,
               private router: Router,
               ) {

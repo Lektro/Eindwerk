@@ -21,7 +21,8 @@ export class PostService {
   delete(id: number): Observable<Post> {
     return this.http.delete<Post>(`${this.postUrl}/${id}`);
   }
-   save(post: Post) {
+
+  save(post: Post) {
     return this.http.post<Post>(this.postUrl, post);
   }
 

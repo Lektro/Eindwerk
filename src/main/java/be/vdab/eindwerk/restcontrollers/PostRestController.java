@@ -14,13 +14,21 @@ public class PostRestController {
 
     public PostRestController (PostServiceImpl postService) { this.postService = postService; }
 
+/*
     @GetMapping(value = {"/posts"})
     public @NotNull
     Iterable<Post> getPosts() {
 
         Iterable<Post> allPosts = postService.getAllPosts();
-        System.out.println(allPosts);
+        // System.out.println(allPosts);
         return allPosts; }
+*/
+
+    @GetMapping(value = {"/posts"})
+    public @NotNull
+    Iterable<Post> getPosts() {
+        return postService.getAllPosts();
+    }
 
     @DeleteMapping("/posts/{id}")
     public void deletePost(@PathVariable Long id) {
