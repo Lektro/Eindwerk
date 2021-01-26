@@ -22,15 +22,6 @@ public class Post {
     @Column(name = "post_content")
     private String postContent;
 
-
-    public Post() { }
-
-    public Post(User user, String postTitle, String postContent) {
-        this.user = user;
-        this.postTitle = postTitle;
-        this.postContent = postContent;
-    }
-
     public Long getId() {
         return id;
     }
@@ -44,8 +35,9 @@ public class Post {
         return user;
     }
 
-    public void setUser(User user) {
+    public Post setUser(User user) {
         this.user = user;
+        return this;
     }
 
     public String getPostTitle() {
@@ -64,5 +56,15 @@ public class Post {
     public Post setPostContent(String postContent) {
         this.postContent = postContent;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", user=" + user +
+                ", postTitle='" + postTitle + '\'' +
+                ", postContent='" + postContent + '\'' +
+                '}';
     }
 }

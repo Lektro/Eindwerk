@@ -16,13 +16,21 @@ export class PostListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.updatePosts();
+      this.refreshPosts();
   }
 
-  public updatePosts(){
+  public refreshPosts(){
     this.postService.getAllPosts().toPromise().then(posts =>{
       this.posts = posts;
     })
   }
 
+  public deletePost(post:Post){
+    this.postService.deletePost(post).toPromise().then(result=>{
+      console.log(result)
+      this.refreshPosts();
+    })
+    // no need to reload component; only refresh users
+    return false;
+  }
 }

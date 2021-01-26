@@ -5,8 +5,10 @@ import be.vdab.eindwerk.model.User;
 import be.vdab.eindwerk.service.PostServiceImpl;
 import be.vdab.eindwerk.service.UserServiceImpl;
 import com.sun.istack.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
@@ -23,9 +25,25 @@ public class PostRestController {
     @GetMapping(value = {"/posts"})
     public @NotNull
     Iterable<Post> getPosts() {
-        Iterable<Post> allPosts = postService.getAllPosts();
-        System.out.println(allPosts);
-        return allPosts;
+        return postService.getAllPosts();
+    }
+
+    @PostMapping(value = {"deletePost"})
+    public boolean deletePost(@RequestBody Post post){
+        postService.deletePost(post);
+        return true;
+    }
+
+
+    @PostMapping(value = {"addPost"})
+    public boolean createPost(@RequestBody Post post){
+        postService.save(post);
+        return true;
+    }
+
+    @GetMapping(value = {"findPostsFromCategory"})
+    public @NotNull Iterable<Post> findPostsFromCategory(@RequestParam String category){
+        return postService.findPostsFromCategory(category);
     }
 
     @RequestMapping("post/add")

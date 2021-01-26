@@ -11,6 +11,10 @@ public class PostServiceImpl implements PostService{
     private final PostRepository postRepository;
 
     public PostServiceImpl(PostRepository postRepository) {this.postRepository = postRepository; }
+    @Override
+    public Post save(Post post) {
+        return postRepository.save(post);
+    }
 
     @Override
     public Iterable<Post> getAllPosts() {
@@ -20,5 +24,13 @@ public class PostServiceImpl implements PostService{
     @Override
     public void createPost(Post post) {
         postRepository.save(post);
+    }
+    @Override
+    public void deletePost(Post post){ postRepository.delete(post);}
+
+    @Override
+    public Iterable<Post> findPostsFromCategory(String category) {
+        // TODO: use criteria builder to get posts from a certain category
+        return new ArrayList<Post>();
     }
 }

@@ -1,9 +1,18 @@
 <h1>Navbar Placeholder</h1>
 
 <h3>Links Placeholder</h3>
-<a routerLink="/listPosts" class="btn btn-info">List Posts</a>
 
-<!--<app-post-list></app-post-list>-->
+<a routerLink="/listPosts" class="btn btn-info">List Posts</a>
+<br/>
+<a routerLink="/createPost/1" class="btn btn-info">Create Post</a>
+<!--Todo: change '1' to the currently logged in user or reroute to login-->
+<br/>
+<a routerLink="/listUsers" class="btn btn-info">List Users</a>
+<br/>
+<a routerLink="/createUser" class="btn btn-info">Create Users</a>
+<br/>
+<a routerLink="/listComments/1" class="btn btn-info">List Comments</a>
+
 
 <router-outlet></router-outlet>
 
