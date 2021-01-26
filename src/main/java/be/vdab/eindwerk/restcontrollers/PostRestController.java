@@ -5,10 +5,8 @@ import be.vdab.eindwerk.model.User;
 import be.vdab.eindwerk.service.PostServiceImpl;
 import be.vdab.eindwerk.service.UserServiceImpl;
 import com.sun.istack.NotNull;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -31,13 +29,6 @@ public class PostRestController {
     @PostMapping(value = {"deletePost"})
     public boolean deletePost(@RequestBody Post post){
         postService.deletePost(post);
-        return true;
-    }
-
-
-    @PostMapping(value = {"addPost"})
-    public boolean createPost(@RequestBody Post post){
-        postService.save(post);
         return true;
     }
 

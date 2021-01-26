@@ -5,6 +5,8 @@ import be.vdab.eindwerk.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+
 @Service
 @Transactional
 public class PostServiceImpl implements PostService{
