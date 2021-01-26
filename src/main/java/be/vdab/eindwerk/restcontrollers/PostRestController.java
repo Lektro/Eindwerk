@@ -29,15 +29,12 @@ public class PostRestController {
     }
 
     @RequestMapping("post/add")
-    public void createPost(/*@RequestBody Post post*/) {
-        User user = new User("name");
-        Post post2 = new Post(user, "title", "content");
-        postService.createPost(post2);
+    public void createPost(@RequestBody Post post) {
+        postService.createPost(post);
     }
 
     @RequestMapping("user/add")
-    public void createUser(/*@RequestBody User user*/) {
-        User user = new User("name");
+    public void createUser(@RequestBody User user) {
         userService.createUser(user);
     }
 }
